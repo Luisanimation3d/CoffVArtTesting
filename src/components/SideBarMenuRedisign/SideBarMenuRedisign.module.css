@@ -475,3 +475,75 @@
 .header__open__container .header__item__menu .header__item__title{
     display: flex;
 }
+
+
+/* Mobile */
+
+.header__container__mobile{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    gap: 1rem;
+}
+
+.header__userInfo__container__mobile{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+.header__userImage__container__mobile{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.header__userInfo__data__mobile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__userInfo__data__mobile .header__userInfo__name{
+    font-size: 1.2rem;
+}
+
+/* Dark Mode Mobile */
+
+.header__container__mobile__darkMode{
+    background-color: #121212;
+}
+
+.header__container__mobile__darkMode .header__userInfo__data__mobile{
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__search__input{
+    background: #1f1f1f;
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__item__menu{
+    background-color: #1f1f1f;
+}
+
+.header__container__mobile__darkMode .header__item__menu .header__item__link {
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__item__menu__active{
+    background-color: #D6CAB0;
+}
+
+.header__container__mobile__darkMode .header__item__menu__active .header__item__link{
+    color: #121212;
+}

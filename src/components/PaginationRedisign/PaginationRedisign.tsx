@@ -31,7 +31,7 @@ export const PaginationRedisign = ({page, setPage, totalPages, darkMode}: {
                     page > 1 && (
                         <button
                             className={`${styles['pagination__button']} ${page == 1 ? styles['pagination__button--disabled'] : ''}`}
-                            onClick={handlePreviousPage}><FiChevronLeft/></button>
+                            onClick={handlePreviousPage}>{<FiChevronLeft/> || '1'}</button>
                     )
                 }
                 {
@@ -45,7 +45,7 @@ export const PaginationRedisign = ({page, setPage, totalPages, darkMode}: {
                     page !== totalPages && (
                         <button
                             className={`${styles['pagination__button']}`}
-                            onClick={handleNextPage}><FiChevronRight/></button>
+                            onClick={handleNextPage}>{<FiChevronRight/> || '>'}</button>
                     )
                 }
             </div>

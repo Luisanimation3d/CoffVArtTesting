@@ -8,7 +8,8 @@
 // import ProductTestImage2 from './assets/ProductTestTwoImage.jpg';
 import {
     MenuItemsProps,
-    SideBarMenuRedisignDesktop
+    SideBarMenuRedisignDesktop,
+    SideBarMenuRedisignMobile
 } from "./components/SideBarMenuRedisign/SideBarMenuRedisign.tsx";
 import {useState} from "react";
 import {FiEdit, FiHome, FiTrash} from "react-icons/fi";
@@ -18,7 +19,7 @@ import {createPortal} from "react-dom";
 
 export default function App() {
 
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const [darkMode, setDarkMode] = useState(true);
 
@@ -222,7 +223,8 @@ export default function App() {
             display: 'flex',
             flexDirection: 'row'
         }}>
-            <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
+            {/* <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/> */}
+            <SideBarMenuRedisignMobile darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
             <div style={{
                 padding: '2rem',
                 width: '100%',
