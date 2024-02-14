@@ -24,6 +24,8 @@ export default function App() {
 
     const [search, setSearch] = useState('')
 
+    const [page, setPage] = useState(1)
+
 
 
     // const options: SelectOption[] = [
@@ -228,11 +230,40 @@ export default function App() {
                 backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
                 transition: 'all 0.5s ease',
                 display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                flexDirection: 'column',
+                gap: '1rem',
                 // backgroundColor: '#dedede',
             }}>
-                <TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)}/>
+                {/*<div style={{*/}
+                {/*    width: '100%',*/}
+                {/*    display: 'flex',*/}
+                {/*    justifyContent: 'flex-end',*/}
+                {/*    alignItems: 'center',*/}
+                {/*    height: '3rem',*/}
+                {/*    backgroundColor: darkMode ? '#171717' : '#dedede',*/}
+                {/*    borderRadius: '.5rem',*/}
+                {/*    padding: '.5rem'*/}
+                {/*}}>*/}
+                {/*    <button style={{*/}
+                {/*        padding: '.5rem 1rem',*/}
+                {/*        borderRadius: '.5rem',*/}
+                {/*        backgroundColor: darkMode ? '#1f1f1f' : '#dedede',*/}
+                {/*        color: darkMode ? '#dedede' : '#1f1f1f',*/}
+                {/*        border: 'none',*/}
+                {/*        cursor: 'pointer',*/}
+                {/*        display: 'flex',*/}
+                {/*        justifyContent: 'center',*/}
+                {/*        alignItems: 'center'*/}
+                {/*    }}*/}
+                {/*    onClick={() => setOpen(true)}*/}
+                {/*    >*/}
+                {/*        <FiCode/>*/}
+                {/*    </button>*/}
+
+                {/*</div>*/}
+                <TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>
 
             </div>
             {

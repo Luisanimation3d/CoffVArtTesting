@@ -1,6 +1,7 @@
 import styles from './TableRedisign.module.css';
 import {FiDownload, FiMoreVertical, FiPlus, FiSearch} from "react-icons/fi";
 import React, {useEffect, useId, useRef, useState} from "react";
+import {PaginationRedisign} from "../PaginationRedisign/PaginationRedisign.tsx";
 
 
 type ColumnType = {
@@ -21,9 +22,13 @@ interface TableProps {
         icon: React.ReactNode;
         label: string;
     }[];
+    pagination?: boolean;
+    page?: number;
+    setPage?: (page: number) => void;
+    totalPages?: number;
 }
 
-export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, title, search, setSearch, dropDownOptions} : TableProps) => {
+export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, title, search, setSearch, dropDownOptions, page, setPage, totalPages, pagination} : TableProps) => {
 
     const [expandedRow, setExpandedRow] = useState<{
         [key: string]: string | number
@@ -178,6 +183,12 @@ export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, ti
                     </table>
                 </div>
             </div>
+
+            {
+                pagination && (
+                    <PaginationRedisign page={page as number} setPage={setPage as (page: number) => void} totalPages={totalPages as number} darkMode={darkMode as boolean}/>
+                )
+            }
         </>
     )
 }
