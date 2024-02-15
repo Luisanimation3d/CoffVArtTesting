@@ -7,15 +7,19 @@
 // import ProductTestImage from './assets/ProductImageTest.jpg';
 // import ProductTestImage2 from './assets/ProductTestTwoImage.jpg';
 import {
-    MenuItemsProps,
-    SideBarMenuRedisignDesktop,
-    SideBarMenuRedisignMobile
+    MenuItemsProps, SideBarMenuRedisign
 } from "./components/SideBarMenuRedisign/SideBarMenuRedisign.tsx";
 import {useState} from "react";
 import {FiEdit, FiHome, FiTrash} from "react-icons/fi";
-import {TableRedisign} from "./components/TableRedisign/TableRedisign.tsx";
+// import {TableRedisign} from "./components/TableRedisign/TableRedisign.tsx";
 import {ModalRedisign, ModalRedisignOverflow} from "./components/ModalRedisign/ModalRedisign.tsx";
 import {createPortal} from "react-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+
+
+import './App.css';
+import {Form} from "./components/Form/Form.tsx";
+import {FormField, SelectOption} from "./types/Form";
 
 export default function App() {
 
@@ -26,7 +30,6 @@ export default function App() {
     const [search, setSearch] = useState('')
 
     const [page, setPage] = useState(1)
-
 
 
     // const options: SelectOption[] = [
@@ -214,70 +217,196 @@ export default function App() {
         console.log(row, type)
     }
 
+    const [form, setForm] = useState<{
+        name: string,
+        lastName: string,
+        email: string,
+        password: string,
+        confirmPassword: string,
+        phone: string,
+        address: string,
+        city: string,
+        state: string,
+        zip: string,
+        country: string,
+        role: SelectOption[],
+    }>({
+        name: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+        phone: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        country: '',
+        role: [],
+    })
+
+    const formFields: FormField[] = [
+        {
+            type: 'text',
+            value: form.name,
+            placeholder: 'Name',
+            onChange: (e) => setForm({...form, name: e}),
+            label: 'Name',
+            name: 'name',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.lastName,
+            placeholder: 'Last Name',
+            onChange: (e) => setForm({...form, lastName: e}),
+            label: 'Last Name',
+            name: 'lastName',
+            size: 'medium'
+        },
+        {
+            type: 'email',
+            value: form.email,
+            placeholder: 'Email',
+            onChange: (e) => setForm({...form, email: e}),
+            label: 'Email',
+            name: 'email',
+            size: 'large'
+        },
+        {
+            type: 'password',
+            value: form.password,
+            placeholder: 'Password',
+            onChange: (e) => setForm({...form, password: e}),
+            label: 'Password',
+            name: 'password',
+            size: 'medium'
+        },
+        {
+            type: 'password',
+            value: form.confirmPassword,
+            placeholder: 'Confirm Password',
+            onChange: (e) => setForm({...form, confirmPassword: e}),
+            label: 'Confirm Password',
+            name: 'confirmPassword',
+            size: 'medium'
+        },
+        {
+            type: 'number',
+            value: form.phone,
+            placeholder: 'Phone',
+            onChange: (e) => setForm({...form, phone: e}),
+            label: 'Phone',
+            name: 'phone',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.address,
+            placeholder: 'Address',
+            onChange: (e) => setForm({...form, address: e}),
+            label: 'Address',
+            name: 'address',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.city,
+            placeholder: 'City',
+            onChange: (e) => setForm({...form, city: e}),
+            label: 'City',
+            name: 'city',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.state,
+            placeholder: 'State',
+            onChange: (e) => setForm({...form, state: e}),
+            label: 'State',
+            name: 'state',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.zip,
+            placeholder: 'Zip',
+            onChange: (e) => setForm({...form, zip: e}),
+            label: 'Zip',
+            name: 'zip',
+            size: 'medium'
+        },
+        {
+            type: 'text',
+            value: form.country,
+            placeholder: 'Country',
+            onChange: (e) => setForm({...form, country: e}),
+            label: 'Country',
+            name: 'country',
+            size: 'medium'
+        },
+        {
+            type: 'select',
+            value: form.role,
+            options: [
+                {
+                    value: '1',
+                    label: 'Admin'
+                },
+                {
+                    value: '2',
+                    label: 'User'
+                }
+            ],
+            onChange: (e) => setForm({...form, role: e}),
+            placeholder: 'Select a role',
+            label: 'Role',
+            name: 'role',
+            size: 'large',
+            multiple: true
+        }
+    ]
+
     return (
-        // <div>
-        //     <ZoomImageViewer image={ProductTestImage} alt={'Imagen Test'} height={500} width={500}/>
-        //     <ZoomImageViewer image={ProductTestImage2} width={500} height={500} alt={'Imagen Test 2'}/>
-        // </div>
-        <div style={{
-            display: 'flex',
-            flexDirection: 'row'
-        }}>
-            {/* <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/> */}
-            <SideBarMenuRedisignMobile darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
-            <div style={{
-                padding: '2rem',
-                width: '100%',
-                height: '100vh',
-                backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
-                transition: 'all 0.5s ease',
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                flexDirection: 'column',
-                gap: '1rem',
-                // backgroundColor: '#dedede',
-            }}>
-                {/*<div style={{*/}
-                {/*    width: '100%',*/}
-                {/*    display: 'flex',*/}
-                {/*    justifyContent: 'flex-end',*/}
-                {/*    alignItems: 'center',*/}
-                {/*    height: '3rem',*/}
-                {/*    backgroundColor: darkMode ? '#171717' : '#dedede',*/}
-                {/*    borderRadius: '.5rem',*/}
-                {/*    padding: '.5rem'*/}
-                {/*}}>*/}
-                {/*    <button style={{*/}
-                {/*        padding: '.5rem 1rem',*/}
-                {/*        borderRadius: '.5rem',*/}
-                {/*        backgroundColor: darkMode ? '#1f1f1f' : '#dedede',*/}
-                {/*        color: darkMode ? '#dedede' : '#1f1f1f',*/}
-                {/*        border: 'none',*/}
-                {/*        cursor: 'pointer',*/}
-                {/*        display: 'flex',*/}
-                {/*        justifyContent: 'center',*/}
-                {/*        alignItems: 'center'*/}
-                {/*    }}*/}
-                {/*    onClick={() => setOpen(true)}*/}
-                {/*    >*/}
-                {/*        <FiCode/>*/}
-                {/*    </button>*/}
+        <BrowserRouter>
+            <Routes>
 
-                {/*</div>*/}
-                <TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>
+                <Route path={'/'} element={<>
+                    <div className={'appContainer'}>
+                        {/* <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/> */}
+                        <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
+                        <div style={{
+                            padding: '2rem',
+                            width: '100%',
+                            height: '100vh',
+                            backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
+                            transition: 'all 0.5s ease',
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                            flexDirection: 'column',
+                            gap: '1rem',
+                            // backgroundColor: '#dedede',
+                        }}>
+                            {/*<TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>*/}
+                            <Form fields={formFields} onSubmit={()=>null} title={'Formulario de prueba'} button={'Enviar formulario'}/>
+                        </div>
+                        {
+                            open && createPortal(<>
+                                    <ModalRedisignOverflow setModalOpen={setOpen}>
+                                        <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
 
-            </div>
-            {
-                open && createPortal(<>
-                    <ModalRedisignOverflow setModalOpen={setOpen}>
-                        <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
+                                        </ModalRedisign>
+                                    </ModalRedisignOverflow>
+                                </>
+                                , document.querySelector('#modal') as HTMLDivElement)
+                        }
+                    </div>
+                </>}/>
 
-                        </ModalRedisign>
-                    </ModalRedisignOverflow>
-                </>
-                    , document.querySelector('#modal') as HTMLDivElement)
-            }
-        </div>
+            </Routes>
+
+        </BrowserRouter>
+
     )
 }

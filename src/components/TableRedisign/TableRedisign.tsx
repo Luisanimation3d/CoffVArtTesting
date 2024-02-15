@@ -48,6 +48,8 @@ export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, ti
 
     const idKey = useId();
 
+    console.log(data, 'data')
+
     useEffect(() => {
         document.addEventListener('click', handleDocumentClick);
 
@@ -91,21 +93,16 @@ export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, ti
                                     <th key={idKey} className={`${styles.table__content__thead__item}`}></th>
                                 )
                             }
-                            {/*<th className={`${styles.table__content__thead__item}`}></th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}> Employee</th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}>Leave Type</th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}>Dates Requested</th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}>Duration</th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}>Status</th>*/}
-                            {/*<th className={`${styles.table__content__thead__item}`}></th>*/}
                         </tr>
                         </thead>
                         <tbody className={`${styles.table__content__tbody}`}>
+
                         {
                             data?.length === 0 ? (
                                 <>
                                     <tr className={`${styles.table__content__tbody__row}`}>
-                                        <td colSpan={7} className={`${styles.table__content__tbody__noData}`}>No Data
+                                        <td colSpan={7} className={`${styles.table__content__tbody__noData}`}>
+                                            No se encontraron datos
                                         </td>
                                     </tr>
                                 </>
@@ -120,7 +117,7 @@ export const TableRedisign = ({darkMode, columns, data, onRowClick, callback, ti
                                                             <>
                                                                 {
                                                                     column.key === 'state' ? (
-                                                                        <td className={`${styles.table__content__tbody__item}`}>
+                                                                        <td className={`${styles.table__content__tbody__item}`} key={index}>
                                                                             <span className={`${handleStateRow(row[column.key]) ? row[column.key] ? styles.table__content__status__approved : styles.table__content__status__declined : row[column.key] == 'Pending' ? styles.table__content__status__pending : row[column.key] == 'Approved' ? styles.table__content__status__approved : row[column.key] == 'Declined' ? styles.table__content__status__declined : ''}`} key={index}>
                                                                                 {
                                                                                     handleStateRow(row[column.key]) ? row[column.key] ? 'Activo' : 'Inactivo' : row[column.key]

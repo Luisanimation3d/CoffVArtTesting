@@ -75,6 +75,8 @@
     align-items: center;
     width: 100%;
     height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     overflow: hidden;
     position: relative;
 }
@@ -119,6 +121,8 @@
     width: 100%;
     height: 80%;
     overflow: hidden;
+    flex: 1;
+    overflow-y: auto;
 }
 
 .header__item__menu__active{
@@ -136,6 +140,8 @@
     gap: 1rem;
     width: 100%;
     height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     border-radius: .5rem;
     cursor: pointer;
     overflow: hidden;
@@ -150,6 +156,7 @@
     align-items: flex-start;
     width: 100%;
     min-height: 50px;
+    /*height: 250px;*/
     border-radius: .5rem;
     cursor: pointer;
     overflow: hidden;
@@ -163,6 +170,7 @@
     gap: 1rem;
     width: 100%;
     height: 100%;
+    min-height: 50px;
     padding: 0 1rem;
     color: #000;
     text-decoration: none;
@@ -248,6 +256,8 @@
     gap: 1rem;
     width: 100%;
     height: 50px;
+    min-height: 50px;
+    max-height: 50px;
     padding: 0 1rem;
     color: #000;
     text-decoration: none;
@@ -490,6 +500,30 @@
     gap: 1rem;
 }
 
+.header__container__mobile__close{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+.header__toggler__mobile{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    outline: none;
+    transition: .3s;
+}
+
 .header__userInfo__container__mobile{
     display: flex;
     flex-direction: column;
@@ -517,10 +551,40 @@
     font-size: 1.2rem;
 }
 
+.header__container__mobile .header__options{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: .3s;
+}
+
+.header__container__mobile .header__options__action{
+    cursor: pointer;
+}
+
 /* Dark Mode Mobile */
 
 .header__container__mobile__darkMode{
     background-color: #121212;
+}
+
+.header__container__mobile__close__darkMode .header__toggler__mobile,
+.header__container__mobile__darkMode .header__toggler__mobile{
+    color: #ccc;
+}
+
+.header__container__mobile__close__darkMode{
+    background: #1f1f1f;
 }
 
 .header__container__mobile__darkMode .header__userInfo__data__mobile{
@@ -546,4 +610,85 @@
 
 .header__container__mobile__darkMode .header__item__menu__active .header__item__link{
     color: #121212;
+}
+
+.header__container__mobile__darkMode .header__options{
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__item__submenu__container{
+    background-color: #1f1f1f;
+}
+
+.header__container__mobile__darkMode .header__submenu__text__container{
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__submenu__toggler{
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__submenu__item .header__submenu__link{
+    color: #ccc;
+}
+
+.header__container__mobile__darkMode .header__submenu__link__active{
+    background-color: #D6CAB0;
+    color: #121212 !important;
+}
+
+/* Light Mode */
+
+.header__container__mobile__lightMode{
+    background-color: #fff;
+}
+
+.header__container__mobile__lightMode .header__userInfo__data__mobile{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__search__input{
+    background: #f5f5f5;
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__item__menu{
+    background-color: #f5f5f5;
+}
+
+.header__container__mobile__lightMode .header__item__menu .header__item__link {
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__item__menu__active{
+    background-color: #D6CAB0;
+}
+
+.header__container__mobile__lightMode .header__item__menu__active .header__item__link{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__options{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__item__submenu__container{
+    background-color: #f5f5f5;
+}
+
+.header__container__mobile__lightMode .header__submenu__text__container{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__submenu__toggler{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__submenu__item .header__submenu__link{
+    color: #121212;
+}
+
+.header__container__mobile__lightMode .header__submenu__link__active{
+    background-color: #D6CAB0;
+    color: #121212 !important;
 }

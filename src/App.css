@@ -1,0 +1,10 @@
+.appContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 768px) {
+    .appContainer{
+        flex-direction: column;
+    }
+}
