@@ -1,7 +1,7 @@
 // import {Select, SelectOption} from "./components/Select/Select.tsx";
 // import {useState} from "react";
 // import {Input} from "./components/Input/Input.tsx";
-// import {TextAreaInput} from "./components/TextAreaInput/TextAreaInput.tsx";
+// import {TextAreaInputRedisign} from "./components/TextAreaInputRedisign/TextAreaInputRedisign.tsx";
 
 // import {ZoomImageViewer} from "./components/ZoomImageViewer/ZoomImageViewer.tsx";
 // import ProductTestImage from './assets/ProductImageTest.jpg';
@@ -18,8 +18,9 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
 import './App.css';
-import {Form} from "./components/Form/Form.tsx";
+import {FormRedisign} from "./components/FormRedisign/FormRedisign.tsx";
 import {FormField, SelectOption} from "./types/Form";
+import {InfoCardRedisign} from "./components/InfoCardRedisign/InfoCardRedisign.tsx";
 
 export default function App() {
 
@@ -60,7 +61,7 @@ export default function App() {
     //         <Input value={value} onChange={setValue} label={'Nombre'} name={'nombre'} size={'medium'}/>
     //         <Input value={value2} onChange={setValue2} label={'Nombre'} name={'nombre'} size={"medium"}/>
     //         <Input value={value3} onChange={setValue3} label={'Nombre'} name={'nombre'} type={'number'}/>
-    //         <TextAreaInput value={value4} onChange={setValue4} label={'some'} name={'textAreaTest'} size={4}/>
+    //         <TextAreaInputRedisign value={value4} onChange={setValue4} label={'some'} name={'textAreaTest'} size={4}/>
     //     </div>
     // )
 
@@ -230,6 +231,7 @@ export default function App() {
         zip: string,
         country: string,
         role: SelectOption[],
+        description: string
     }>({
         name: '',
         lastName: '',
@@ -243,6 +245,7 @@ export default function App() {
         zip: '',
         country: '',
         role: [],
+        description: ''
     })
 
     const formFields: FormField[] = [
@@ -364,49 +367,91 @@ export default function App() {
             name: 'role',
             size: 'large',
             multiple: true
+        },
+        {
+            type: 'textarea',
+            value: form.description,
+            placeholder: 'Description',
+            onChange: (e) => setForm({...form, description: e}),
+            label: 'Description',
+            name: 'description',
+            size: 4
         }
     ]
 
     return (
-        <BrowserRouter>
-            <Routes>
-
-                <Route path={'/'} element={<>
-                    <div className={'appContainer'}>
-                        {/* <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/> */}
-                        <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
-                        <div style={{
-                            padding: '2rem',
-                            width: '100%',
-                            height: '100vh',
-                            backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
-                            transition: 'all 0.5s ease',
-                            display: 'flex',
-                            justifyContent: 'flex-start',
-                            alignItems: 'center',
-                            flexDirection: 'column',
-                            gap: '1rem',
-                            // backgroundColor: '#dedede',
-                        }}>
-                            {/*<TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>*/}
-                            <Form fields={formFields} onSubmit={()=>null} title={'Formulario de prueba'} button={'Enviar formulario'}/>
-                        </div>
-                        {
-                            open && createPortal(<>
-                                    <ModalRedisignOverflow setModalOpen={setOpen}>
-                                        <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
-
-                                        </ModalRedisign>
-                                    </ModalRedisignOverflow>
-                                </>
-                                , document.querySelector('#modal') as HTMLDivElement)
-                        }
-                    </div>
-                </>}/>
-
-            </Routes>
-
-        </BrowserRouter>
+        // <BrowserRouter>
+        //     <Routes>
+        //
+        //         <Route path={'/'} element={<>
+        //             <div className={'appContainer'}>
+        //                 {/* <SideBarMenuRedisignDesktop darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/> */}
+        //                 <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
+        //                 <div style={{
+        //                     padding: '2rem',
+        //                     width: '100%',
+        //                     height: '100vh',
+        //                     backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
+        //                     transition: 'all 0.5s ease',
+        //                     display: 'flex',
+        //                     justifyContent: 'flex-start',
+        //                     alignItems: 'center',
+        //                     flexDirection: 'column',
+        //                     gap: '1rem',
+        //                     // backgroundColor: '#dedede',
+        //                 }}>
+        //                     {/*<TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>*/}
+        //                     <FormRedisign fields={formFields} onSubmit={()=>null} title={'Formulario de prueba'} button={'Enviar formulario'}/>
+        //                 </div>
+        //                 {
+        //                     open && createPortal(<>
+        //                             <ModalRedisignOverflow setModalOpen={setOpen}>
+        //                                 <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
+        //
+        //                                 </ModalRedisign>
+        //                             </ModalRedisignOverflow>
+        //                         </>
+        //                         , document.querySelector('#modal') as HTMLDivElement)
+        //                 }
+        //             </div>
+        //         </>}/>
+        //
+        //     </Routes>
+        //
+        // </BrowserRouter>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
+            flexDirection: 'row',
+        }}>
+            <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
+            <div style={{
+                padding: '4rem',
+                width: '100%',
+                height: '100vh',
+                backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
+                transition: 'all 0.5s ease',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateRows: 'repeat(4, 1fr)',
+                gap: '1rem',
+                // backgroundColor: '#dedede',
+            }}>
+                <InfoCardRedisign darkMode={darkMode} style={{
+                    gridColumn: '1 / 2',
+                    gridRow: '1 / 6'
+                }}/>
+                <InfoCardRedisign darkMode={darkMode} style={{
+                    gridColumn: '2 / 4',
+                    gridRow: '1 / 3'
+                }}/>
+                <InfoCardRedisign darkMode={darkMode} style={{
+                    gridColumn: '2 / 4',
+                    gridRow: '3 / 6'
+                }}/>
+            </div>
+        </div>
 
     )
 }

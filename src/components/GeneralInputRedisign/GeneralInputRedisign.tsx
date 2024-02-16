@@ -1,10 +1,9 @@
 import {useState, useRef} from "react";
 import {FiEye, FiEyeOff} from "react-icons/fi";
-import styles from './GeneralInput.module.css';
+import styles from './GeneralInputRedisign.module.css';
 import {InputProps} from "../../types/Form";
 
-export const Input = ({value, onChange, label, name, placeholder, size = 'large', type = 'text'}: InputProps) => {
-    const [darkMode, setDarkMode] = useState<boolean>(false);
+export const GeneralInputRedisign = ({value, onChange, label, name, placeholder, size = 'large', type = 'text'}: InputProps) => {
     const [showPassword, setShowPassword] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const handleShowPassword = () => {

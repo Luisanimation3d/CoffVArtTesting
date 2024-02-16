@@ -1,14 +1,14 @@
-import {FC, useState} from "react";
+import {FC} from "react";
 
 import {useNavigate} from "react-router-dom";
 
-import "./Form.css";
+import "./FormRedisign.css";
 import {FormField, FormProps} from "../../types/Form";
-import {Input} from "../GeneralInput/GeneralInput.tsx";
-import {Select} from "../SelectInput/SelectInput.tsx";
-import {TextAreaInput} from "../TextAreaInput/TextAreaInput.tsx";
+import {GeneralInputRedisign} from "../GeneralInputRedisign/GeneralInputRedisign.tsx";
+import {SelectInputRedisign} from "../SelectInputRedisign/SelectInputRedisign.tsx";
+import {TextAreaInputRedisign} from "../TextAreaInputRedisign/TextAreaInputRedisign.tsx";
 
-export const Form: FC<FormProps> = ({
+export const FormRedisign: FC<FormProps> = ({
                                         title,
                                         fields,
                                         onSubmit,
@@ -18,8 +18,6 @@ export const Form: FC<FormProps> = ({
                                         extra
                                     }) => {
     const navigate = useNavigate();
-
-    const [darkMode, setDarkMode] = useState<boolean>(false);
 
     return (
         <>
@@ -50,7 +48,7 @@ export const Form: FC<FormProps> = ({
                                     <div
                                         className={`formControllerContainer ${size === 'large' ? 'formControllerContainer--large' : 'formControllerContainer--medium'}`}
                                         key={index}>
-                                        <Input key={index} value={value} onChange={onChange} label={label} name={name}
+                                        <GeneralInputRedisign key={index} value={value} onChange={onChange} label={label} name={name}
                                                size={size} type={type}/>
                                         {errors && errors[name] && (
                                             <span className="formController__error">{errors[name]}</span>
@@ -62,14 +60,14 @@ export const Form: FC<FormProps> = ({
                                 return multiple ? (
                                     <div className={`formControllerContainer ${size === 'large' ? 'formControllerContainer--large' : 'formControllerContainer--medium'}`}
                                          key={index}>
-                                        <Select key={index} type={type} options={options} onChange={onChange}
+                                        <SelectInputRedisign key={index} type={type} options={options} onChange={onChange}
                                                 value={value}
                                                 placeholder={placeholder} size={size} multiple/>
                                     </div>
                                 ) : (
                                     <div className={`formControllerContainer ${size === 'large' ? 'formControllerContainer--large' : 'formControllerContainer--medium'}`}
                                          key={index}>
-                                        <Select key={index} type={type} options={options} onChange={onChange}
+                                        <SelectInputRedisign key={index} type={type} options={options} onChange={onChange}
                                                 value={value}
                                                 placeholder={placeholder}/>
                                     </div>
@@ -80,7 +78,7 @@ export const Form: FC<FormProps> = ({
                                     <div className="formControllerContainer" style={{
                                         width: '100%'
                                     }} key={index}>
-                                        <TextAreaInput key={index} type={type} value={value} onChange={onChange}
+                                        <TextAreaInputRedisign key={index} type={type} value={value as string} onChange={onChange}
                                                        label={label} name={name} placeholder={placeholder}
                                                        size={size as number}/>
                                         {errors && errors[name] && (
