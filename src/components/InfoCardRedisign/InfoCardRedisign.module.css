@@ -186,7 +186,8 @@
 /* Dark Mode */
 .infoCard__container__darkMode {
     /*background-color: #1d232d;*/
-    background: linear-gradient(0, #2d3748, #1d232d);
+    /* background: linear-gradient(0, #2d3748, #1d232d); */
+    background: linear-gradient(0, rgba(45, 55, 72,.5), rgba(132, 150, 182, 0.2));
     border: 2px solid #2d3748;
     color: #fff;
 }
@@ -261,4 +262,30 @@
 
 .infoCard__container__lightMode .infoCard__barContainer {
     background: #f1f2f6;
+}
+
+@media screen and (max-width: 1440px){
+    .infoCard__body__data__parameter__value{
+        font-size: 1.5rem;
+    }
+
+    .infoCard__body__data__price{
+        font-size: 1rem;
+    }
+
+    .infoCard__body__data__container{
+        gap: .5rem;
+    }
+
+    .infoCard__body__data__content{
+        gap: .3rem;
+    }
+
+    .infoCard__body__data__title{
+        font-size: .8rem;
+    }
+
+    .infoCard__body__data__description{
+        font-size: .6rem;
+    }
 }
