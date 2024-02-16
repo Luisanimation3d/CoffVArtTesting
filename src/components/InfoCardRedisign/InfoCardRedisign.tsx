@@ -1,5 +1,6 @@
 import styles from './InfoCardRedisign.module.css'
 import {FiArrowUpCircle, FiMoreHorizontal} from "react-icons/fi";
+import {useEffect, useState} from "react";
 
 interface InfoCardProps {
     darkMode: boolean;
@@ -56,13 +57,22 @@ export const InfoCardRedisign = ({darkMode, ...props}: InfoCardProps) => {
 
 const InfoCardBar = ({day}: { day: string }) => {
     const randomNumber = Math.floor(Math.random() * 100) + 1
+
+    const [height, setHeight] = useState<number>(0)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setHeight(randomNumber)
+        }, 500)
+    }, []);
+
     return (
         <div className={`${styles.infoCard__barContainer__container}`}>
             <div className={`${styles.infoCard__barContainer}`}>
                 <span
-                    className={`${styles.infoCard__barContainer__bar} ${randomNumber > 80 ? styles.infoCard__barContainer__bar__high : randomNumber > 50 ? styles.infoCard__barContainer__bar__medium : styles.infoCard__barContainer__bar__low}`}
+                    className={`${styles.infoCard__barContainer__bar} ${height > 80 ? styles.infoCard__barContainer__bar__high : height > 50 ? styles.infoCard__barContainer__bar__medium : styles.infoCard__barContainer__bar__low}`}
                     style={{
-                        height: `${randomNumber}%`,
+                        height: `${height}%`,
                     }}
                 >
                 </span>
