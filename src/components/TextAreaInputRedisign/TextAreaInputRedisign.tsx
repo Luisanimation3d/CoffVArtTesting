@@ -10,6 +10,7 @@ type TextAreaInputProps = {
 }
 
 export const TextAreaInputRedisign = ({value, onChange, label, name, size = 1}: TextAreaInputProps) => {
+    const darkMode = true
     return (
         <div className={`${styles.container} ${darkMode ? styles.darkMode : styles.lightMode}`}
              style={{height: `${size * 32}px`}}

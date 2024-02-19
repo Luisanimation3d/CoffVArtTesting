@@ -7,6 +7,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
     display: flex;
+    backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
 }
@@ -18,6 +19,7 @@
     max-height: 600px;
     padding: 20px;
     border-radius: 10px;
+    overflow-y: auto;
     position: relative;
 }
 
@@ -42,7 +44,8 @@
 /* Dark Mode */
 .modal__container__darkMode{
     background-color: #1f1f1f;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.8); */
+    box-shadow: -12px 12px 25px -11px #9f2130b7;
 }
 
 .modal__container__darkMode .modal__closeButton{
@@ -53,7 +56,9 @@
 
 .modal__container__lightMode{
     background-color: #ccc;
-    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2);
+    /* background: rgba(204,204,204,.5); */
+    /* box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.2); */
+    box-shadow: -12px 12px 25px -11px #9f2130b7;
 }
 
 .modal__container__lightMode .modal__closeButton{

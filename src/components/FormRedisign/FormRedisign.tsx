@@ -18,6 +18,7 @@ export const FormRedisign: FC<FormProps> = ({
                                         extra
                                     }) => {
     const navigate = useNavigate();
+    const darkMode = true
 
     return (
         <>

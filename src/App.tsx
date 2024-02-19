@@ -9,22 +9,22 @@
 import {
     MenuItemsProps, SideBarMenuRedisign
 } from "./components/SideBarMenuRedisign/SideBarMenuRedisign.tsx";
-import {useState} from "react";
-import {FiEdit, FiHome, FiTrash} from "react-icons/fi";
+import { useState } from "react";
+import { FiEdit, FiHome, FiTrash } from "react-icons/fi";
 // import {TableRedisign} from "./components/TableRedisign/TableRedisign.tsx";
-import {ModalRedisign, ModalRedisignOverflow} from "./components/ModalRedisign/ModalRedisign.tsx";
-import {createPortal} from "react-dom";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { ModalRedisign, ModalRedisignOverflow } from "./components/ModalRedisign/ModalRedisign.tsx";
+import { createPortal } from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 import './App.css';
-import {FormRedisign} from "./components/FormRedisign/FormRedisign.tsx";
-import {FormField, SelectOption} from "./types/Form";
-import {InfoCardRedisign} from "./components/InfoCardRedisign/InfoCardRedisign.tsx";
+import { FormRedisign } from "./components/FormRedisign/FormRedisign.tsx";
+import { FormField, SelectOption } from "./types/Form";
+import { InfoCardRedisign } from "./components/InfoCardRedisign/InfoCardRedisign.tsx";
 
 export default function App() {
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
 
     const [darkMode, setDarkMode] = useState(true);
 
@@ -69,13 +69,13 @@ export default function App() {
         {
             type: 'menu',
             title: 'Inicio',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             link: '/'
         },
         {
             type: 'subMenu',
             title: 'Productos',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             subItems: [
                 {
                     title: 'Productos',
@@ -90,7 +90,7 @@ export default function App() {
         {
             type: 'subMenu',
             title: 'Ventas',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             subItems: [
                 {
                     title: 'Ventas',
@@ -105,7 +105,7 @@ export default function App() {
         {
             type: 'subMenu',
             title: 'Usuarios',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             subItems: [
                 {
                     title: 'Usuarios',
@@ -120,7 +120,7 @@ export default function App() {
         {
             type: 'subMenu',
             title: 'Configuración',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             subItems: [
                 {
                     title: 'Configuración',
@@ -135,7 +135,7 @@ export default function App() {
         {
             type: 'subMenu',
             title: 'Configuración',
-            icon: <FiHome/>,
+            icon: <FiHome />,
             subItems: [
                 {
                     title: 'Configuración',
@@ -206,11 +206,11 @@ export default function App() {
     const dropdownOptions = [
         {
             label: 'Edit',
-            icon: <FiEdit/>,
+            icon: <FiEdit />,
         },
         {
             label: 'Delete',
-            icon: <FiTrash/>,
+            icon: <FiTrash />,
         }
     ]
 
@@ -253,7 +253,7 @@ export default function App() {
             type: 'text',
             value: form.name,
             placeholder: 'Name',
-            onChange: (e) => setForm({...form, name: e}),
+            onChange: (e) => setForm({ ...form, name: e }),
             label: 'Name',
             name: 'name',
             size: 'medium'
@@ -262,7 +262,7 @@ export default function App() {
             type: 'text',
             value: form.lastName,
             placeholder: 'Last Name',
-            onChange: (e) => setForm({...form, lastName: e}),
+            onChange: (e) => setForm({ ...form, lastName: e }),
             label: 'Last Name',
             name: 'lastName',
             size: 'medium'
@@ -271,7 +271,7 @@ export default function App() {
             type: 'email',
             value: form.email,
             placeholder: 'Email',
-            onChange: (e) => setForm({...form, email: e}),
+            onChange: (e) => setForm({ ...form, email: e }),
             label: 'Email',
             name: 'email',
             size: 'large'
@@ -280,7 +280,7 @@ export default function App() {
             type: 'password',
             value: form.password,
             placeholder: 'Password',
-            onChange: (e) => setForm({...form, password: e}),
+            onChange: (e) => setForm({ ...form, password: e }),
             label: 'Password',
             name: 'password',
             size: 'medium'
@@ -289,7 +289,7 @@ export default function App() {
             type: 'password',
             value: form.confirmPassword,
             placeholder: 'Confirm Password',
-            onChange: (e) => setForm({...form, confirmPassword: e}),
+            onChange: (e) => setForm({ ...form, confirmPassword: e }),
             label: 'Confirm Password',
             name: 'confirmPassword',
             size: 'medium'
@@ -298,7 +298,7 @@ export default function App() {
             type: 'number',
             value: form.phone,
             placeholder: 'Phone',
-            onChange: (e) => setForm({...form, phone: e}),
+            onChange: (e) => setForm({ ...form, phone: e }),
             label: 'Phone',
             name: 'phone',
             size: 'medium'
@@ -307,7 +307,7 @@ export default function App() {
             type: 'text',
             value: form.address,
             placeholder: 'Address',
-            onChange: (e) => setForm({...form, address: e}),
+            onChange: (e) => setForm({ ...form, address: e }),
             label: 'Address',
             name: 'address',
             size: 'medium'
@@ -316,7 +316,7 @@ export default function App() {
             type: 'text',
             value: form.city,
             placeholder: 'City',
-            onChange: (e) => setForm({...form, city: e}),
+            onChange: (e) => setForm({ ...form, city: e }),
             label: 'City',
             name: 'city',
             size: 'medium'
@@ -325,7 +325,7 @@ export default function App() {
             type: 'text',
             value: form.state,
             placeholder: 'State',
-            onChange: (e) => setForm({...form, state: e}),
+            onChange: (e) => setForm({ ...form, state: e }),
             label: 'State',
             name: 'state',
             size: 'medium'
@@ -334,7 +334,7 @@ export default function App() {
             type: 'text',
             value: form.zip,
             placeholder: 'Zip',
-            onChange: (e) => setForm({...form, zip: e}),
+            onChange: (e) => setForm({ ...form, zip: e }),
             label: 'Zip',
             name: 'zip',
             size: 'medium'
@@ -343,7 +343,7 @@ export default function App() {
             type: 'text',
             value: form.country,
             placeholder: 'Country',
-            onChange: (e) => setForm({...form, country: e}),
+            onChange: (e) => setForm({ ...form, country: e }),
             label: 'Country',
             name: 'country',
             size: 'medium'
@@ -361,7 +361,7 @@ export default function App() {
                     label: 'User'
                 }
             ],
-            onChange: (e) => setForm({...form, role: e}),
+            onChange: (e) => setForm({ ...form, role: e }),
             placeholder: 'Select a role',
             label: 'Role',
             name: 'role',
@@ -372,7 +372,7 @@ export default function App() {
             type: 'textarea',
             value: form.description,
             placeholder: 'Description',
-            onChange: (e) => setForm({...form, description: e}),
+            onChange: (e) => setForm({ ...form, description: e }),
             label: 'Description',
             name: 'description',
             size: 4
@@ -403,55 +403,67 @@ export default function App() {
         //                     {/*<TableRedisign darkMode={darkMode} title={'Employees'} columns={columns} search={search} setSearch={setSearch} data={employees} dropDownOptions={dropdownOptions} callback={handleCallback} onRowClick={row => console.log(row)} page={page} setPage={setPage} totalPages={5} pagination={true}/>*/}
         //                     <FormRedisign fields={formFields} onSubmit={()=>null} title={'Formulario de prueba'} button={'Enviar formulario'}/>
         //                 </div>
-        //                 {
-        //                     open && createPortal(<>
-        //                             <ModalRedisignOverflow setModalOpen={setOpen}>
-        //                                 <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
-        //
-        //                                 </ModalRedisign>
-        //                             </ModalRedisignOverflow>
-        //                         </>
-        //                         , document.querySelector('#modal') as HTMLDivElement)
-        //                 }
+        // {
+        //     open && createPortal(<>
+        //             <ModalRedisignOverflow setModalOpen={setOpen}>
+        //                 <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
+
+        //                 </ModalRedisign>
+        //             </ModalRedisignOverflow>
+        //         </>
+        //         , document.querySelector('#modal') as HTMLDivElement)
+        // }
         //             </div>
         //         </>}/>
         //
         //     </Routes>
         //
         // </BrowserRouter>
-        <div style={{
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            flexDirection: 'row',
-        }}>
-            <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems}/>
+        <BrowserRouter>
             <div style={{
-                padding: '4rem',
-                width: '100%',
-                height: '100vh',
-                backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
-                transition: 'all 0.5s ease',
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
-                gridTemplateRows: 'repeat(4, 1fr)',
-                gap: '1rem',
-                // backgroundColor: '#dedede',
+                display: 'flex',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                flexDirection: 'row',
             }}>
-                <InfoCardRedisign darkMode={darkMode} style={{
-                    gridColumn: '1 / 2',
-                    gridRow: '1 / 6'
-                }}/>
-                <InfoCardRedisign darkMode={darkMode} style={{
-                    gridColumn: '2 / 4',
-                    gridRow: '1 / 3'
-                }}/>
-                <InfoCardRedisign darkMode={darkMode} style={{
-                    gridColumn: '2 / 4',
-                    gridRow: '3 / 6'
-                }}/>
+                <SideBarMenuRedisign darkMode={darkMode} setDarkMode={setDarkMode} menuItems={menuItems} />
+                <div style={{
+                    padding: '4rem',
+                    width: '100%',
+                    height: '100vh',
+                    backgroundColor: darkMode ? '#1f1f1f' : '#dedede',
+                    transition: 'all 0.5s ease',
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gridTemplateRows: 'repeat(4, 1fr)',
+                    gap: '1rem',
+                    // backgroundColor: '#dedede',
+                }}>
+                    <InfoCardRedisign darkMode={darkMode} style={{
+                        gridColumn: '1 / 2',
+                        gridRow: '1 / 6'
+                    }} />
+                    <InfoCardRedisign darkMode={darkMode} style={{
+                        gridColumn: '2 / 4',
+                        gridRow: '1 / 3'
+                    }} />
+                    <InfoCardRedisign darkMode={darkMode} style={{
+                        gridColumn: '2 / 4',
+                        gridRow: '3 / 6'
+                    }} />
+                </div>
+                {
+                    open && createPortal(<>
+                        <ModalRedisignOverflow setModalOpen={setOpen}>
+                            <ModalRedisign setModalOpen={setOpen} darkMode={darkMode}>
+                                <FormRedisign fields={formFields} title="Formulario" button={'Enviar'} onSubmit={() => null} />
+                            </ModalRedisign>
+                        </ModalRedisignOverflow>
+                    </>
+                        , document.querySelector('#modal') as HTMLDivElement)
+                }
             </div>
-        </div>
+        </BrowserRouter>
 
     )
 }

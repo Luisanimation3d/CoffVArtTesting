@@ -25,7 +25,7 @@ export const ModalRedisign = ({
     darkMode: boolean
 }) => {
     return (
-        <div className={`${styles.modal__container} ${darkMode ? styles.modal__container__darkMode : styles.modal__container__lightMode}`}>
+        <div className={`${styles.modal__container} ${darkMode ? styles.modal__container__darkMode : styles.modal__container__lightMode}`} onClick={e => e.stopPropagation()}>
             <button onClick={() => setModalOpen(false)} className={`${styles.modal__closeButton}`}>
                 <FiX/>
             </button>

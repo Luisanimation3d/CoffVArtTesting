@@ -5,6 +5,7 @@ import {FiX, FiChevronDown} from 'react-icons/fi';
 import styles from './SelectInputRedisign.module.css';
 
 export const SelectInputRedisign = ({multiple, value, options, onChange, placeholder}: SelectProps) => {
+    const darkMode = true
     const [isOpen, setIsOpen] = useState(false);
     const [highLightedIndex, setHighLightedIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null)
